@@ -107,8 +107,8 @@ function App() {
 
   return (
     <div className="App">
-      <Typography variant="h3" paddingBottom={3}>
-        Capital Quiz App
+      <Typography variant="h4" paddingBottom={3}>
+        <strong>CAPITAL QUIZ</strong>
       </Typography>
 
       <div className={currentQuestion === 11 ? "gameover" : "gameover none"}>
@@ -144,7 +144,7 @@ function App() {
               justifyContent="center"
               alignItems="center"
               divider={<Divider orientation="vertical" flexItem />}
-              spacing={2}
+              spacing={1}
             >
               <Item>
                 Right answers:
@@ -173,7 +173,7 @@ function App() {
             direction="column"
             justifyContent="center"
             alignItems="center"
-            spacing={2}
+            spacing={1}
           >
             {question.options.map((answer) => {
               return (
