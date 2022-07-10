@@ -7,22 +7,19 @@
   justify-content: center;
   text-align: center;
   margin: auto;
+  font-family: 'Roboto Slab', serif;
   
 }
 
-.options {
-  background-color: bisque;
-  width: 200px;
-  height: 50px;
-  margin: 5 px 5 px;
-}
+
 
 .none {
   display: none;
 }
 
 .container {
-  width: 100%;
+  /* width: 100%; */
+  width: min(100%, 500px);
   background-color: whitesmoke;
   padding: 1rem;
   border-radius: 0.3rem;
@@ -48,11 +45,12 @@
 }
 
 .container--title {
-  background-color: whitesmoke;
+  
   padding: 1rem;
   border-radius: 0.3rem;
-  width: 100%;
+  width: min(100%, 500px);
   background-color: #1976d2;
+  
   color: white;
   margin-bottom: 0.5rem;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Data from "./data_json.js";
+import Footer from "./components/Footer/Footer";
 
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
@@ -11,6 +12,7 @@ import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+
 
 let newData = [];
 
@@ -111,27 +113,24 @@ function App() {
   return (
     <div className="App">
       <div className="container--title">
-        
         <Typography variant="h5">
           <strong>CAPITAL QUIZ 1.0</strong>
         </Typography>
       </div>
 
       <div className={currentQuestion === 11 ? "container flex" : "none"}>
-        
-          <Item>
-            <Typography variant="h6">
-              {score} out of {numberOfQuestions} correct (
-              {(score / numberOfQuestions) * 100}%)
-            </Typography>
-            <br />
-            <Button onClick={resetQuestions} variant="contained">
-              Start Again
-            </Button>
-            <br />
-            <br />
-          </Item>
-        
+        <Item>
+          <Typography variant="h6">
+            {score} out of {numberOfQuestions} correct (
+            {(score / numberOfQuestions) * 100}%)
+          </Typography>
+          <br />
+          <Button onClick={resetQuestions} variant="contained">
+            Start Again
+          </Button>
+          <br />
+          <br />
+        </Item>
       </div>
 
       <div className={currentQuestion === 11 ? "container none" : "container"}>
@@ -164,12 +163,14 @@ function App() {
             {/* <Typography variant="h6" padding={1} color="gray">
               Question {currentQuestion} out of {numberOfQuestions}
             </Typography> */}
-
-            <Divider>
-              <Chip label={`${currentQuestion} out of ${numberOfQuestions}`} />
-            </Divider>
-            <br />
-
+            
+              <Divider>
+                <Chip
+                  label={`${currentQuestion} out of ${numberOfQuestions}`}
+                />
+              </Divider>
+              <br />
+            
             <Typography variant="h5">
               {question.question} {question.country}?
             </Typography>
@@ -191,7 +192,6 @@ function App() {
             return (
               <Button
                 variant="contained"
-                
                 fullWidth="true"
                 onClick={() => optionClicked(answer.isCorrect)}
                 key={answer.id}
@@ -201,12 +201,19 @@ function App() {
             );
           })}
         </Stack>
+        <br />
 
         {!question.country && (
-          <Button onClick={getCountry} variant="contained">
-            Start
-          </Button>
+          <>
+            <Button onClick={getCountry} variant="contained">
+              Start
+            </Button>
+            <br />
+            <br />
+          </>
         )}
+
+        <Footer />
       </div>
     </div>
   );
