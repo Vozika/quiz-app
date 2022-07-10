@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Data from "./data_json.js";
 import Footer from "./components/Footer/Footer";
+import 'animate.css';
 
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
@@ -33,6 +34,8 @@ function App() {
   const [rightAnswer, setRightAnswer] = React.useState(0);
   const [wrongAnswer, setWrongAnswer] = React.useState(0);
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
+  const [showRightAnimation, setshowRightAnimation] = React.useState(false);
+  const [showWrongAnimation, setshowWrongAnimation] = React.useState(false);
 
   const [question, setQuestion] = React.useState({
     question: "What is the capital of",
@@ -96,12 +99,27 @@ function App() {
   function optionClicked(isCorrect) {
     if (isCorrect) {
       setScore(score + 1);
+      showAnimationFunc(setshowRightAnimation);
       setRightAnswer(rightAnswer + 1);
+      
     } else {
+      showAnimationFunc(setshowWrongAnimation);
       setWrongAnswer(wrongAnswer + 1);
+      
     }
-    getCountry();
+    setTimeout(() => {
+      getCountry();
+    }, 1000)
+    
+    
   }
+
+ function showAnimationFunc(state) {
+  state(prevState => !prevState);
+  setTimeout(() => {
+    state(prevState => !prevState);
+  }, 800);
+ }
 
   function resetQuestions() {
     setScore(0);
@@ -118,7 +136,7 @@ function App() {
         </Typography>
       </div>
 
-      <div className={currentQuestion === 11 ? "container flex" : "none"}>
+      <div className={currentQuestion === 11 ? "container flex animate__animated animate__fadeInUp" : "none"}>
         <Item>
           <Typography variant="h6">
             {score} out of {numberOfQuestions} correct (
@@ -145,14 +163,18 @@ function App() {
             >
               <Item>
                 <div className="answer">
-                  <ThumbUpIcon color="success" />
+                  
+                  <div className={showRightAnimation ? "animate__animated animate__bounce" : "animate__animated"}>
+
+                  <ThumbUpIcon color="success" /></div>
 
                   <strong>{rightAnswer}</strong>
                 </div>
               </Item>
               <Item>
                 <div className="answer">
-                  <ThumbDownIcon color="error" />
+                <div className={showWrongAnimation ? "animate__animated animate__bounce" : "animate__animated"}>
+                  <ThumbDownIcon color="error" /></div>
 
                   <strong>{wrongAnswer}</strong>
                 </div>
