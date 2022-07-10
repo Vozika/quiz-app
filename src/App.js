@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
 import Data from "./data_json.js";
-import Box from "@mui/material/Box";
+
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import Chip from "@mui/material/Chip";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 
 let newData = [];
 
@@ -107,21 +110,18 @@ function App() {
 
   return (
     <div className="App">
-      <Typography variant="h4" paddingBottom={3}>
-        <strong>CAPITAL QUIZ</strong>
-      </Typography>
+      <div className="container--title">
+        
+        <Typography variant="h5">
+          <strong>CAPITAL QUIZ 1.0</strong>
+        </Typography>
+      </div>
 
-      <div className={currentQuestion === 11 ? "gameover" : "gameover none"}>
-        <Stack
-          width="100vw"
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          spacing={2}
-        >
+      <div className={currentQuestion === 11 ? "container flex" : "none"}>
+        
           <Item>
-            <Typography variant="h5" paddingTop={2}>
-              {score} out of {numberOfQuestions} is correct - (
+            <Typography variant="h6">
+              {score} out of {numberOfQuestions} correct (
               {(score / numberOfQuestions) * 100}%)
             </Typography>
             <br />
@@ -131,14 +131,12 @@ function App() {
             <br />
             <br />
           </Item>
-        </Stack>
+        
       </div>
 
       <div className={currentQuestion === 11 ? "container none" : "container"}>
         {question.country && (
           <>
-            {/* <h2>Score: {score}</h2> */}
-
             <Stack
               direction="row"
               justifyContent="center"
@@ -147,46 +145,63 @@ function App() {
               spacing={1}
             >
               <Item>
-                Right answers:
-                <Typography variant="h6" padding={1} color="green">
+                <div className="answer">
+                  <ThumbUpIcon color="success" />
+
                   <strong>{rightAnswer}</strong>
-                </Typography>
+                </div>
               </Item>
               <Item>
-                Wrong answers:{" "}
-                <Typography variant="h6" padding={1} color="red">
+                <div className="answer">
+                  <ThumbDownIcon color="error" />
+
                   <strong>{wrongAnswer}</strong>
-                </Typography>
+                </div>
               </Item>
             </Stack>
+            <br />
 
-            <Typography variant="h6" padding={1} color="gray">
+            {/* <Typography variant="h6" padding={1} color="gray">
               Question {currentQuestion} out of {numberOfQuestions}
-            </Typography>
-            <Typography variant="h4" paddingBottom={3}>
+            </Typography> */}
+
+            <Divider>
+              <Chip label={`${currentQuestion} out of ${numberOfQuestions}`} />
+            </Divider>
+            <br />
+
+            <Typography variant="h5">
               {question.question} {question.country}?
             </Typography>
+            <br />
+            <br />
+
+            <Divider></Divider>
+            <br />
           </>
         )}
-        <Box>
-          <Stack
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            spacing={1}
-          >
-            {question.options.map((answer) => {
-              return (
-                <Item
-                  onClick={() => optionClicked(answer.isCorrect)}
-                  key={answer.id}
-                >
-                  <Button>{answer.capital}</Button>
-                </Item>
-              );
-            })}
-          </Stack>
-        </Box>
+
+        <Stack
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          spacing={1}
+        >
+          {question.options.map((answer) => {
+            return (
+              <Button
+                variant="contained"
+                
+                fullWidth="true"
+                onClick={() => optionClicked(answer.isCorrect)}
+                key={answer.id}
+              >
+                {answer.capital}
+              </Button>
+            );
+          })}
+        </Stack>
+
         {!question.country && (
           <Button onClick={getCountry} variant="contained">
             Start

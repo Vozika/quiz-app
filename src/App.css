@@ -7,6 +7,7 @@
   justify-content: center;
   text-align: center;
   margin: auto;
+  
 }
 
 .options {
@@ -21,9 +22,43 @@
 }
 
 .container {
-  background-color: white;
+  width: 100%;
+  background-color: whitesmoke;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  
+  
 }
 
 .gameover {
   background-color: white;
+}
+
+.answer {
+  
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 0.6rem;
+  font-size: 1.65rem;
+  
+  
+}
+
+.container--title {
+  background-color: whitesmoke;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  width: 100%;
+  background-color: #1976d2;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  
 }
