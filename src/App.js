@@ -37,15 +37,14 @@ function App() {
     if (Data.length < numberOfOptions + 2) {
       Data.push.apply(Data, newData);
       newData = [];
-      console.log(newData);
-      console.log(Data);
     }
-
+    
+    // Randomizing a correct country from a data array of countries as objects
     const randomCountry = getRandom(Data.length);
     const correctCountry = Data[randomCountry];
 
     newData.push(correctCountry);
-    console.log(newData);
+    
     const country = Data[randomCountry].country;
     correctCountry.isCorrect = true;
     correctCountry.id = 666;
@@ -55,6 +54,8 @@ function App() {
     const splicedCountries = [];
     options.push(correctCountry);
 
+
+    // Loop for adding 3 random incorrect countries to 1 correct
     for (let i = 0; i < numberOfOptions; i++) {
       let countriesLoop = Data;
       let randomCountryLoop = getRandom(countriesLoop.length);
@@ -68,8 +69,11 @@ function App() {
     splicedCountries.map((country) => {
       return Data.push(country);
     });
+
+    // Randomizing 4 answers before adding them to a state
     options.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
+    // Adding everything to a state object
     setQuestion((prevQuestion) => ({
       ...prevQuestion,
       country: country,
