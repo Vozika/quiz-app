@@ -2,34 +2,16 @@ import React from "react";
 import "./App.css";
 import Data from "./data_json.js";
 import Footer from "./components/Footer/Footer";
-import 'animate.css';
-
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
-import { styled } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import Chip from "@mui/material/Chip";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import ThumbDownIcon from "@mui/icons-material/ThumbDown";
-
+import Header from "./components/Header/Header";
+import Finish from "./components/Finish/Finish";
+import Start from "./components/Start/Start";
+import Counter from "./components/Counter/Counter";
+import Question from "./components/Question/Question";
+import Answers from "./components/Answers/Answers";
 
 let newData = [];
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "gray" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  width: "50%",
-  hover: { backgroundColor: "rgb(7, 177, 77, 0.42)" },
-}));
-
 function App() {
-  console.log(Data);
-
   const [score, setScore] = React.useState(0);
   const [rightAnswer, setRightAnswer] = React.useState(0);
   const [wrongAnswer, setWrongAnswer] = React.useState(0);
@@ -101,25 +83,21 @@ function App() {
       setScore(score + 1);
       showAnimationFunc(setshowRightAnimation);
       setRightAnswer(rightAnswer + 1);
-      
     } else {
       showAnimationFunc(setshowWrongAnimation);
       setWrongAnswer(wrongAnswer + 1);
-      
     }
     setTimeout(() => {
       getCountry();
-    }, 1000)
-    
-    
+    }, 1000);
   }
 
- function showAnimationFunc(state) {
-  state(prevState => !prevState);
-  setTimeout(() => {
-    state(prevState => !prevState);
-  }, 800);
- }
+  function showAnimationFunc(state) {
+    state((prevState) => !prevState);
+    setTimeout(() => {
+      state((prevState) => !prevState);
+    }, 800);
+  }
 
   function resetQuestions() {
     setScore(0);
@@ -130,111 +108,47 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container--title">
-        <Typography variant="h5">
-          <strong>CAPITAL QUIZ 1.0</strong>
-        </Typography>
+      <Header />
+      <div
+        className={
+          currentQuestion === numberOfQuestions + 1
+            ? "container flex animate__animated animate__fadeInUp"
+            : "none"
+        }
+      >
+        <Finish
+          reset={resetQuestions}
+          score={score}
+          numberOfQuestions={numberOfQuestions}
+        />
       </div>
-
-      <div className={currentQuestion === 11 ? "container flex animate__animated animate__fadeInUp" : "none"}>
-        <Item>
-          <Typography variant="h6">
-            {score} out of {numberOfQuestions} correct (
-            {(score / numberOfQuestions) * 100}%)
-          </Typography>
-          <br />
-          <Button onClick={resetQuestions} variant="contained">
-            Start Again
-          </Button>
-          <br />
-          <br />
-        </Item>
-      </div>
-
-      <div className={currentQuestion === 11 ? "container none" : "container"}>
+      <div
+        className={
+          currentQuestion === numberOfQuestions + 1
+            ? "container none"
+            : "container"
+        }
+      >
         {question.country && (
           <>
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              divider={<Divider orientation="vertical" flexItem />}
-              spacing={1}
-            >
-              <Item>
-                <div className="answer">
-                  
-                  <div className={showRightAnimation ? "animate__animated animate__bounce" : "animate__animated"}>
-
-                  <ThumbUpIcon color="success" /></div>
-
-                  <strong>{rightAnswer}</strong>
-                </div>
-              </Item>
-              <Item>
-                <div className="answer">
-                <div className={showWrongAnimation ? "animate__animated animate__bounce" : "animate__animated"}>
-                  <ThumbDownIcon color="error" /></div>
-
-                  <strong>{wrongAnswer}</strong>
-                </div>
-              </Item>
-            </Stack>
+            <Counter
+              showRightAnimation={showRightAnimation}
+              showWrongAnimation={showWrongAnimation}
+              wrongAnswer={wrongAnswer}
+              rightAnswer={rightAnswer}
+            />
             <br />
-
-            {/* <Typography variant="h6" padding={1} color="gray">
-              Question {currentQuestion} out of {numberOfQuestions}
-            </Typography> */}
-            
-              <Divider>
-                <Chip
-                  label={`${currentQuestion} out of ${numberOfQuestions}`}
-                />
-              </Divider>
-              <br />
-            
-            <Typography variant="h5">
-              {question.question} {question.country}?
-            </Typography>
-            <br />
-            <br />
-
-            <Divider></Divider>
+            <Question
+              currentQuestion={currentQuestion}
+              numberOfQuestions={numberOfQuestions}
+              question={question}
+            />
             <br />
           </>
         )}
-
-        <Stack
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          spacing={1}
-        >
-          {question.options.map((answer) => {
-            return (
-              <Button
-                variant="contained"
-                fullWidth="true"
-                onClick={() => optionClicked(answer.isCorrect)}
-                key={answer.id}
-              >
-                {answer.capital}
-              </Button>
-            );
-          })}
-        </Stack>
+        <Answers question={question} optionClicked={optionClicked} />
         <br />
-
-        {!question.country && (
-          <>
-            <Button onClick={getCountry} variant="contained">
-              Start
-            </Button>
-            <br />
-            <br />
-          </>
-        )}
-
+        {!question.country && <Start handleCountry={getCountry} />}
         <Footer />
       </div>
     </div>
