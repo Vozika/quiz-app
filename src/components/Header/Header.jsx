@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import "./header.css"
+import "./header.css";
 
 const Header = () => {
   return (

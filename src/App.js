@@ -12,6 +12,8 @@ import Answers from "./components/Answers/Answers";
 let newData = [];
 
 function App() {
+
+  // States
   const [score, setScore] = React.useState(0);
   const [rightAnswer, setRightAnswer] = React.useState(0);
   const [wrongAnswer, setWrongAnswer] = React.useState(0);
@@ -28,6 +30,7 @@ function App() {
   const numberOfQuestions = 10;
   const numberOfOptions = 3;
 
+  // Standart function for a random number
   function getRandom(a) {
     const randomNumber = Math.floor(Math.random() * a);
     return randomNumber;
