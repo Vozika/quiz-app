@@ -9,10 +9,16 @@ import Counter from "./components/Counter/Counter";
 import Question from "./components/Question/Question";
 import Answers from "./components/Answers/Answers";
 
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormControl from "@mui/material/FormControl";
+import FormLabel from "@mui/material/FormLabel";
+import { Typography } from "@mui/material";
+
 let newData = [];
 
 function App() {
-
   // States
   const [score, setScore] = React.useState(0);
   const [rightAnswer, setRightAnswer] = React.useState(0);
@@ -20,6 +26,7 @@ function App() {
   const [currentQuestion, setCurrentQuestion] = React.useState(0);
   const [showRightAnimation, setshowRightAnimation] = React.useState(false);
   const [showWrongAnimation, setshowWrongAnimation] = React.useState(false);
+  const [numberOfOptions, setNumberOfOptions] = React.useState(3);
 
   const [question, setQuestion] = React.useState({
     question: "What is the capital of",
@@ -28,7 +35,7 @@ function App() {
   });
 
   const numberOfQuestions = 10;
-  const numberOfOptions = 3;
+  // const numberOfOptions = 3;
 
   // Standart function for a random number
   function getRandom(a) {
@@ -41,13 +48,13 @@ function App() {
       Data.push.apply(Data, newData);
       newData = [];
     }
-    
+
     // Randomizing a correct country from a data array of countries as objects
     const randomCountry = getRandom(Data.length);
     const correctCountry = Data[randomCountry];
 
     newData.push(correctCountry);
-    
+
     const country = Data[randomCountry].country;
     correctCountry.isCorrect = true;
     correctCountry.id = 666;
@@ -56,7 +63,6 @@ function App() {
     const options = [];
     const splicedCountries = [];
     options.push(correctCountry);
-
 
     // Loop for adding 3 random incorrect countries to 1 correct
     for (let i = 0; i < numberOfOptions; i++) {
@@ -94,9 +100,9 @@ function App() {
       showAnimationFunc(setshowWrongAnimation);
       setWrongAnswer(wrongAnswer + 1);
     }
-    setTimeout(() => {
-      getCountry();
-    }, 1000);
+    // setTimeout(() => {
+    getCountry();
+    // }, 1000);
   }
 
   function showAnimationFunc(state) {
@@ -111,6 +117,20 @@ function App() {
     setRightAnswer(0);
     setWrongAnswer(0);
     setCurrentQuestion(1);
+  }
+
+  function handleChange(event) {
+    setNumberOfOptions(event.target.value);
+  }
+
+  function resetApp() {
+    resetQuestions();
+    setQuestion({
+    question: "What is the capital of",
+    country: "",
+    options: [],
+    }
+    )
   }
 
   return (
@@ -155,7 +175,40 @@ function App() {
         )}
         <Answers question={question} optionClicked={optionClicked} />
         <br />
-        {!question.country && <Start handleCountry={getCountry} />}
+        {question.country && <Typography><a href="#" onClick={resetApp}>Back to Start</a></Typography>}
+        <br />
+        {!question.country && (
+          <>
+            <FormControl>
+              <FormLabel id="radio-buttons-group-label">Difficulty</FormLabel>
+              <RadioGroup
+                row
+                aria-labelledby="radio-buttons-group-label"
+                name="radio-buttons-group"
+                value={numberOfOptions}
+                onChange={handleChange}
+              >
+                <FormControlLabel
+                  value={1}
+                  control={<Radio />}
+                  label="Easy"
+                />
+                <FormControlLabel
+                  value={3}
+                  control={<Radio />}
+                  label="Normal"
+                />
+                <FormControlLabel
+                  value={4}
+                  control={<Radio />}
+                  label="Hard"
+                />
+              </RadioGroup>
+            </FormControl>
+
+            <Start handleCountry={getCountry} />
+          </>
+        )}
         <Footer />
       </div>
     </div>

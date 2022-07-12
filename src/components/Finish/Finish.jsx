@@ -12,7 +12,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
-  width: "50%",
+  width: "80%",
   hover: { backgroundColor: "rgb(7, 177, 77, 0.42)" },
 }));
 
@@ -20,6 +20,13 @@ const Finish = (props) => {
   return (
     <Item>
       <Typography variant="h6">
+        <strong>
+        {props.score === 10 && "Oh my God! You are the best!"}
+        {(props.score === 9 || props.score === 8) && "Damn. Almost."}
+        {props.score === 0 && "You. Suck."}
+        {(props.score < 5 && props.score !== 0) && "Better than nothing."}
+        {(props.score === 6 || props.score === 7) && "Very nice."}
+        </strong><br />
         {props.score} out of {props.numberOfQuestions} correct (
         {(props.score / props.numberOfQuestions) * 100}%)
       </Typography>
