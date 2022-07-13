@@ -9,12 +9,8 @@ import Counter from "./components/Counter/Counter";
 import Question from "./components/Question/Question";
 import Answers from "./components/Answers/Answers";
 
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
 import { Typography } from "@mui/material";
+import Difficulty from "./components/Difficulty/Difficulty";
 
 let newData = [];
 
@@ -126,11 +122,10 @@ function App() {
   function resetApp() {
     resetQuestions();
     setQuestion({
-    question: "What is the capital of",
-    country: "",
-    options: [],
-    }
-    )
+      question: "What is the capital of",
+      country: "",
+      options: [],
+    });
   }
 
   return (
@@ -175,37 +170,20 @@ function App() {
         )}
         <Answers question={question} optionClicked={optionClicked} />
         <br />
-        {question.country && <Typography><a href="#" onClick={resetApp}>Back to Start</a></Typography>}
-        <br />
+        {question.country && (
+          <Typography sx={{ marginBottom: "15px" }}>
+            <a href="#" onClick={resetApp}>
+              Back to Start
+            </a>
+          </Typography>
+        )}
+        
         {!question.country && (
           <>
-            <FormControl>
-              <FormLabel id="radio-buttons-group-label">Difficulty</FormLabel>
-              <RadioGroup
-                row
-                aria-labelledby="radio-buttons-group-label"
-                name="radio-buttons-group"
-                value={numberOfOptions}
-                onChange={handleChange}
-              >
-                <FormControlLabel
-                  value={1}
-                  control={<Radio />}
-                  label="Easy"
-                />
-                <FormControlLabel
-                  value={3}
-                  control={<Radio />}
-                  label="Normal"
-                />
-                <FormControlLabel
-                  value={4}
-                  control={<Radio />}
-                  label="Hard"
-                />
-              </RadioGroup>
-            </FormControl>
-
+            <Difficulty
+              numberOfOptions={numberOfOptions}
+              handleChange={handleChange}
+            />
             <Start handleCountry={getCountry} />
           </>
         )}

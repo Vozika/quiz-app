@@ -9,9 +9,9 @@ const Start = (props) => {
 
 
 
-<br /><br />
+<br />
 
-      <Button onClick={props.handleCountry} variant="contained">
+      <Button onClick={props.handleCountry} variant="contained" sx={{ marginTop: "8px" }}>
         Start
       </Button>
       <br />
