@@ -1,4 +1,6 @@
 const Data = [
+  
+  //A
   {
     country: "Afghanistan",
     capital: "Kabul",
@@ -9,11 +11,7 @@ const Data = [
   },
   {
     country: "Algeria",
-    capital: "Alger",
-  },
-  {
-    country: "American Samoa",
-    capital: "Fagatogo",
+    capital: "Algiers",
   },
   {
     country: "Andorra",
@@ -22,10 +20,6 @@ const Data = [
   {
     country: "Angola",
     capital: "Luanda",
-  },
-  {
-    country: "Anguilla",
-    capital: "The Valley",
   },
   {
     country: "Antigua and Barbuda",
@@ -40,28 +34,25 @@ const Data = [
     capital: "Yerevan",
   },
   {
-    country: "Aruba",
-    capital: "Oranjestad",
-  },
-  {
     country: "Australia",
     capital: "Canberra",
   },
   {
     country: "Austria",
-    capital: "Wien",
+    capital: "Vienna",
   },
   {
     country: "Azerbaijan",
     capital: "Baku",
   },
+  //B
   {
     country: "Bahamas",
     capital: "Nassau",
   },
   {
     country: "Bahrain",
-    capital: "al-Manama",
+    capital: "Manama",
   },
   {
     country: "Bangladesh",
@@ -77,7 +68,7 @@ const Data = [
   },
   {
     country: "Belgium",
-    capital: "Bruxelles [Brussel]",
+    capital: "Brussels",
   },
   {
     country: "Belize",
@@ -88,16 +79,12 @@ const Data = [
     capital: "Porto-Novo",
   },
   {
-    country: "Bermuda",
-    capital: "Hamilton",
-  },
-  {
     country: "Bhutan",
     capital: "Thimphu",
   },
   {
     country: "Bolivia",
-    capital: "La Paz",
+    capital: "Sucre",
   },
   {
     country: "Bosnia and Herzegovina",
@@ -109,7 +96,7 @@ const Data = [
   },
   {
     country: "Brazil",
-    capital: "Brasília",
+    capital: "Brasilia",
   },
   {
     country: "Brunei",
@@ -125,7 +112,12 @@ const Data = [
   },
   {
     country: "Burundi",
-    capital: "Bujumbura",
+    capital: "Gitega",
+  },
+  //C
+  {
+    country: "Cabo Verde",
+    capital: "Praia",
   },
   {
     country: "Cambodia",
@@ -133,19 +125,11 @@ const Data = [
   },
   {
     country: "Cameroon",
-    capital: "Yaound",
+    capital: "Yaounde",
   },
   {
     country: "Canada",
     capital: "Ottawa",
-  },
-  {
-    country: "Cape Verde",
-    capital: "Praia",
-  },
-  {
-    country: "Cayman Islands",
-    capital: "George Town",
   },
   {
     country: "Central African Republic",
@@ -153,27 +137,19 @@ const Data = [
   },
   {
     country: "Chad",
-    capital: "N'Djam",
+    capital: "N'Djamena",
   },
   {
     country: "Chile",
-    capital: "Santiago de Chile",
+    capital: "Santiago",
   },
   {
     country: "China",
-    capital: "Peking",
-  },
-  {
-    country: "Christmas Island",
-    capital: "Flying Fish Cove",
-  },
-  {
-    country: "Cocos (Keeling) Islands",
-    capital: "West Island",
+    capital: "Beijing",
   },
   {
     country: "Colombia",
-    capital: "Santaf",
+    capital: "Bogota",
   },
   {
     country: "Comoros",
@@ -184,12 +160,8 @@ const Data = [
     capital: "Brazzaville",
   },
   {
-    country: "Cook Islands",
-    capital: "Avarua",
-  },
-  {
     country: "Costa Rica",
-    capital: "San José",
+    capital: "San Jose",
   },
   {
     country: "Croatia",
@@ -197,7 +169,7 @@ const Data = [
   },
   {
     country: "Cuba",
-    capital: "La Habana",
+    capital: "Havana",
   },
   {
     country: "Cyprus",
@@ -207,6 +179,7 @@ const Data = [
     country: "Czech Republic",
     capital: "Praha",
   },
+  //D
   {
     country: "Denmark",
     capital: "Copenhagen",
@@ -221,12 +194,9 @@ const Data = [
   },
   {
     country: "Dominican Republic",
-    capital: "Santo Domingo de Guzm",
+    capital: "Santo Domingo",
   },
-  {
-    country: "East Timor",
-    capital: "Dili",
-  },
+  //E
   {
     country: "Ecuador",
     capital: "Quito",
@@ -238,10 +208,6 @@ const Data = [
   {
     country: "El Salvador",
     capital: "San Salvador",
-  },
-  {
-    country: "England",
-    capital: "London",
   },
   {
     country: "Equatorial Guinea",
@@ -256,37 +222,27 @@ const Data = [
     capital: "Tallinn",
   },
   {
+    country: "Eswatini",
+    capital: "Mbabane",
+  },
+  {
     country: "Ethiopia",
-    capital: "Addis Abeba",
+    capital: "Addis Ababa",
   },
+  //F
   {
-    country: "Falkland Islands",
-    capital: "Stanley",
-  },
-  {
-    country: "Faroe Islands",
-    capital: "Tórshavn",
-  },
-  {
-    country: "Fiji Islands",
+    country: "Fiji",
     capital: "Suva",
   },
   {
     country: "Finland",
-    capital: "Helsinki [Helsingfors]",
+    capital: "Helsinki",
   },
   {
     country: "France",
     capital: "Paris",
   },
-  {
-    country: "French Guiana",
-    capital: "Cayenne",
-  },
-  {
-    country: "French Polynesia",
-    capital: "Papeete",
-  },
+//G
   {
     country: "Gabon",
     capital: "Libreville",
@@ -308,32 +264,16 @@ const Data = [
     capital: "Accra",
   },
   {
-    country: "Gibraltar",
-    capital: "Gibraltar",
-  },
-  {
     country: "Greece",
-    capital: "Athenai",
-  },
-  {
-    country: "Greenland",
-    capital: "Nuuk",
+    capital: "Athens",
   },
   {
     country: "Grenada",
     capital: "Saint George's",
   },
   {
-    country: "Guadeloupe",
-    capital: "Basse-Terre",
-  },
-  {
-    country: "Guam",
-    capital: "Aga",
-  },
-  {
     country: "Guatemala",
-    capital: "Ciudad de Guatemala",
+    capital: "Guatemala City",
   },
   {
     country: "Guinea",
@@ -347,29 +287,23 @@ const Data = [
     country: "Guyana",
     capital: "Georgetown",
   },
+  //H
   {
     country: "Haiti",
     capital: "Port-au-Prince",
-  },
-  {
-    country: "Holy See (Vatican Capital State)",
-    capital: "Citt",
   },
   {
     country: "Honduras",
     capital: "Tegucigalpa",
   },
   {
-    country: "Hong Kong",
-    capital: "Victoria",
-  },
-  {
     country: "Hungary",
     capital: "Budapest",
   },
+  //I
   {
     country: "Iceland",
-    capital: "Reykjavík",
+    capital: "Reykjavik",
   },
   {
     country: "India",
@@ -403,6 +337,7 @@ const Data = [
     country: "Ivory Coast",
     capital: "Yamoussoukro",
   },
+  //J
   {
     country: "Jamaica",
     capital: "Kingston",
@@ -415,9 +350,10 @@ const Data = [
     country: "Jordan",
     capital: "Amman",
   },
+  //K
   {
     country: "Kazakhstan",
-    capital: "Astana",
+    capital: "Nur-Sultan",
   },
   {
     country: "Kenya",
@@ -425,16 +361,22 @@ const Data = [
   },
   {
     country: "Kiribati",
-    capital: "Bairiki",
+    capital: "South Tarawa",
+  },
+  {
+    country: "Kosovo",
+    capital: "Pristina",
   },
   {
     country: "Kuwait",
-    capital: "Kuwait",
+    capital: "Kuwait City",
   },
   {
     country: "Kyrgyzstan",
     capital: "Bishkek",
   },
+
+  //L
   {
     country: "Laos",
     capital: "Vientiane",
@@ -456,7 +398,7 @@ const Data = [
     capital: "Monrovia",
   },
   {
-    country: "Libyan Arab Jamahiriya",
+    country: "Libya",
     capital: "Tripoli",
   },
   {
@@ -469,16 +411,9 @@ const Data = [
   },
   {
     country: "Luxembourg",
-    capital: "Luxembourg [Luxemburg/L",
+    capital: "Luxembourg",
   },
-  {
-    country: "Macao",
-    capital: "Macao",
-  },
-  {
-    country: "North Macedonia",
-    capital: "Skopje",
-  },
+  //M
   {
     country: "Madagascar",
     capital: "Antananarivo",
@@ -505,7 +440,7 @@ const Data = [
   },
   {
     country: "Marshall Islands",
-    capital: "Dalap-Uliga-Darrit",
+    capital: "Majuro",
   },
   {
     country: "Martinique",
@@ -517,7 +452,7 @@ const Data = [
   },
   {
     country: "Mauritius",
-    capital: "Port-Louis",
+    capital: "Port Louis",
   },
   {
     country: "Mayotte",
@@ -525,10 +460,10 @@ const Data = [
   },
   {
     country: "Mexico",
-    capital: "Ciudad de M",
+    capital: "Mexico City",
   },
   {
-    country: "Micronesia, Federated States of",
+    country: "Micronesia",
     capital: "Palikir",
   },
   {
@@ -537,19 +472,15 @@ const Data = [
   },
   {
     country: "Monaco",
-    capital: "Monaco-Ville",
+    capital: "Monaco",
   },
   {
     country: "Mongolia",
-    capital: "Ulan Bator",
+    capital: "Ulaanbaatar",
   },
   {
     country: "Montenegro",
     capital: "Podgorica",
-  },
-  {
-    country: "Montserrat",
-    capital: "Plymouth",
   },
   {
     country: "Morocco",
@@ -561,8 +492,9 @@ const Data = [
   },
   {
     country: "Myanmar",
-    capital: "Rangoon (Yangon)",
+    capital: "Nay Pyi Taw",
   },
+  //N
   {
     country: "Namibia",
     capital: "Windhoek",
@@ -578,14 +510,6 @@ const Data = [
   {
     country: "Netherlands",
     capital: "Amsterdam",
-  },
-  {
-    country: "Netherlands Antilles",
-    capital: "Willemstad",
-  },
-  {
-    country: "New Caledonia",
-    capital: "Noum",
   },
   {
     country: "New Zealand",
@@ -604,48 +528,34 @@ const Data = [
     capital: "Abuja",
   },
   {
-    country: "Niue",
-    capital: "Alofi",
-  },
-  {
-    country: "Norfolk Island",
-    capital: "Kingston",
-  },
-  {
     country: "North Korea",
     capital: "Pyongyang",
   },
   {
-    country: "Northern Ireland",
-    capital: "Belfast",
-  },
-  {
-    country: "Northern Mariana Islands",
-    capital: "Garapan",
+    country: "North Macedonia",
+    capital: "Skopje",
   },
   {
     country: "Norway",
     capital: "Oslo",
   },
+  //O
   {
     country: "Oman",
-    capital: "Masqat",
+    capital: "Muscat",
   },
+  //P
   {
     country: "Pakistan",
     capital: "Islamabad",
   },
   {
     country: "Palau",
-    capital: "Koror",
-  },
-  {
-    country: "Palestine",
-    capital: "Gaza",
+    capital: "Ngerulmud",
   },
   {
     country: "Panama",
-    capital: "Ciudad de Panamá",
+    capital: "Panama City",
   },
   {
     country: "Papua New Guinea",
@@ -653,7 +563,7 @@ const Data = [
   },
   {
     country: "Paraguay",
-    capital: "Asunción",
+    capital: "Asuncion",
   },
   {
     country: "Peru",
@@ -669,40 +579,32 @@ const Data = [
   },
   {
     country: "Poland",
-    capital: "Warszawa",
+    capital: "Warsaw",
   },
   {
     country: "Portugal",
-    capital: "Lisboa",
+    capital: "Lisbon",
   },
-  {
-    country: "Puerto Rico",
-    capital: "San Juan",
-  },
+//Q
   {
     country: "Qatar",
     capital: "Doha",
   },
-  {
-    country: "Reunion",
-    capital: "Saint-Denis",
-  },
+
+  //R
   {
     country: "Romania",
-    capital: "Bucuresti",
+    capital: "Bucharest",
   },
   {
-    country: "Russian Federation",
+    country: "Russia",
     capital: "Moscow",
   },
   {
     country: "Rwanda",
     capital: "Kigali",
   },
-  {
-    country: "Saint Helena",
-    capital: "Jamestown",
-  },
+  //S
   {
     country: "Saint Kitts and Nevis",
     capital: "Basseterre",
@@ -710,10 +612,6 @@ const Data = [
   {
     country: "Saint Lucia",
     capital: "Castries",
-  },
-  {
-    country: "Saint Pierre and Miquelon",
-    capital: "Saint-Pierre",
   },
   {
     country: "Saint Vincent and the Grenadines",
@@ -729,15 +627,11 @@ const Data = [
   },
   {
     country: "Sao Tome and Principe",
-    capital: "São Tomé",
+    capital: "Sao Tome",
   },
   {
     country: "Saudi Arabia",
     capital: "Riyadh",
-  },
-  {
-    country: "Scotland",
-    capital: "Edinburgh",
   },
   {
     country: "Senegal",
@@ -800,12 +694,8 @@ const Data = [
     capital: "Paramaribo",
   },
   {
-    country: "Svalbard and Jan Mayen",
-    capital: "Longyearbyen",
-  },
-  {
-    country: "Swaziland",
-    capital: "Mbabane",
+    country: "Sri Lanka",
+    capital: "Sri Jayawardenepura Kotte",
   },
   {
     country: "Sweden",
@@ -819,6 +709,7 @@ const Data = [
     country: "Syria",
     capital: "Damascus",
   },
+  //T
   {
     country: "Tajikistan",
     capital: "Dushanbe",
@@ -832,16 +723,8 @@ const Data = [
     capital: "Bangkok",
   },
   {
-    country: "The Democratic Republic of Congo",
-    capital: "Kinshasa",
-  },
-  {
     country: "Togo",
-    capital: "Lomé",
-  },
-  {
-    country: "Tokelau",
-    capital: "Fakaofo",
+    capital: "Lome",
   },
   {
     country: "Tonga",
@@ -849,7 +732,7 @@ const Data = [
   },
   {
     country: "Trinidad and Tobago",
-    capital: "Port-of-Spain",
+    capital: "Port of Spain",
   },
   {
     country: "Tunisia",
@@ -863,21 +746,18 @@ const Data = [
     country: "Turkmenistan",
     capital: "Ashgabat",
   },
-  {
-    country: "Turks and Caicos Islands",
-    capital: "Cockburn Town",
-  },
-  {
+   {
     country: "Tuvalu",
     capital: "Funafuti",
   },
+  //U
   {
     country: "Uganda",
     capital: "Kampala",
   },
   {
     country: "Ukraine",
-    capital: "Kyiv",
+    capital: "Kiev",
   },
   {
     country: "United Arab Emirates",
@@ -897,11 +777,12 @@ const Data = [
   },
   {
     country: "Uzbekistan",
-    capital: "Toskent",
+    capital: "Tashkent",
   },
+  //V
   {
     country: "Vanuatu",
-    capital: "Port-Vila",
+    capital: "Port Vila",
   },
   {
     country: "Venezuela",
@@ -911,30 +792,12 @@ const Data = [
     country: "Vietnam",
     capital: "Hanoi",
   },
-  {
-    country: "Virgin Islands, British",
-    capital: "Road Town",
-  },
-  {
-    country: "Virgin Islands, U.S.",
-    capital: "Charlotte Amalie",
-  },
-  {
-    country: "Wales",
-    capital: "Cardiff",
-  },
-  {
-    country: "Wallis and Futuna",
-    capital: "Mata-Utu",
-  },
-  {
-    country: "Western Sahara",
-    capital: "El-Aai",
-  },
+//W
   {
     country: "Yemen",
     capital: "Sanaa",
   },
+  //Z
   {
     country: "Zambia",
     capital: "Lusaka",

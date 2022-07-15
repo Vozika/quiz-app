@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
-import Data from "./data_json.js";
+import Data from "./id_data.js";
+
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Finish from "./components/Finish/Finish";
@@ -16,6 +17,7 @@ let newData = [];
 
 function App() {
   // States
+  console.log(newData)
   const [score, setScore] = React.useState(0);
   const [rightAnswer, setRightAnswer] = React.useState(0);
   const [wrongAnswer, setWrongAnswer] = React.useState(0);
@@ -40,20 +42,22 @@ function App() {
   }
 
   function getCountry() {
-    if (Data.length < numberOfOptions + 2) {
+    if (Data.length < numberOfOptions) {
       Data.push.apply(Data, newData);
       newData = [];
     }
+
+    setCurrentQuestion(currentQuestion + 1);
 
     // Randomizing a correct country from a data array of countries as objects
     const randomCountry = getRandom(Data.length);
     const correctCountry = Data[randomCountry];
 
-    newData.push(correctCountry);
+    
 
     const country = Data[randomCountry].country;
     correctCountry.isCorrect = true;
-    correctCountry.id = 666;
+    // correctCountry.id = 666;
     Data.splice(randomCountry, 1);
 
     const options = [];
@@ -65,7 +69,7 @@ function App() {
       let countriesLoop = Data;
       let randomCountryLoop = getRandom(countriesLoop.length);
       countriesLoop[randomCountryLoop].isCorrect = false;
-      countriesLoop[randomCountryLoop].id = i;
+      // countriesLoop[randomCountryLoop].id = i;
       options.push(countriesLoop[randomCountryLoop]);
       splicedCountries.push(countriesLoop[randomCountryLoop]);
       countriesLoop.splice(randomCountryLoop, 1);
@@ -84,10 +88,17 @@ function App() {
       country: country,
       options: options,
     }));
-    setCurrentQuestion(currentQuestion + 1);
+
+    if (currentQuestion === numberOfQuestions) {
+      return;
+    } else {
+      newData.push(correctCountry);
+    }
+    
   }
 
   function optionClicked(isCorrect) {
+    //Prevents multiple button clicks
     if (showRightAnimation || showWrongAnimation) {
       return;
     }
