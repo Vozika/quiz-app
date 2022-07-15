@@ -88,6 +88,10 @@ function App() {
   }
 
   function optionClicked(isCorrect) {
+    if (showRightAnimation || showWrongAnimation) {
+      return;
+    }
+
     if (isCorrect) {
       setScore(score + 1);
       showAnimationFunc(setshowRightAnimation);
@@ -96,9 +100,10 @@ function App() {
       showAnimationFunc(setshowWrongAnimation);
       setWrongAnswer(wrongAnswer + 1);
     }
-    // setTimeout(() => {
-    getCountry();
-    // }, 1000);
+
+    setTimeout(() => {
+      getCountry();
+    }, 1000);
   }
 
   function showAnimationFunc(state) {
@@ -112,7 +117,7 @@ function App() {
     setScore(0);
     setRightAnswer(0);
     setWrongAnswer(0);
-    setCurrentQuestion(1);
+    setCurrentQuestion(0);
   }
 
   function handleChange(event) {
@@ -139,7 +144,7 @@ function App() {
         }
       >
         <Finish
-          reset={resetQuestions}
+          reset={resetApp}
           score={score}
           numberOfQuestions={numberOfQuestions}
         />
@@ -164,11 +169,18 @@ function App() {
               currentQuestion={currentQuestion}
               numberOfQuestions={numberOfQuestions}
               question={question}
+              showRightAnimation={showRightAnimation}
+              showWrongAnimation={showWrongAnimation}
             />
             <br />
           </>
         )}
-        <Answers question={question} optionClicked={optionClicked} />
+        <Answers
+          question={question}
+          optionClicked={optionClicked}
+          showRightAnimation={showRightAnimation}
+          showWrongAnimation={showWrongAnimation}
+        />
         <br />
         {question.country && (
           <Typography sx={{ marginBottom: "15px" }}>
@@ -177,7 +189,7 @@ function App() {
             </a>
           </Typography>
         )}
-        
+
         {!question.country && (
           <>
             <Difficulty

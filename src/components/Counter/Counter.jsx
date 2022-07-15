@@ -39,11 +39,15 @@ const Counter = (props) => {
           <div
             className={
               props.showRightAnimation
-                ? "animate__animated animate__bounce"
+                ? "animate__animated animate__flash"
                 : "animate__animated"
             }
           >
-            <ThumbUpIcon />
+            <ThumbUpIcon color={
+              props.showRightAnimation
+              ? "success"
+              : ""
+            } />
           </div>
 
           <strong>{props.rightAnswer}</strong>
@@ -54,11 +58,17 @@ const Counter = (props) => {
           <div
             className={
               props.showWrongAnimation
-                ? "animate__animated animate__bounce"
+                ? "animate__animated animate__flash"
                 : "animate__animated"
             }
           >
-            <ThumbDownIcon />
+            <ThumbDownIcon
+             color={
+              props.showWrongAnimation
+              ? "error"
+              : ""
+             }
+            />
           </div>
 
           <strong>{props.wrongAnswer}</strong>

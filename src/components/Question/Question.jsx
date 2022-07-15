@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 const Question = (props) => {
   return (
-    <div>
+    <div className={props.showRightAnimation || props.showWrongAnimation ? "animate__animated" : "animate__animated animate__fadeInUp"}>
       <Divider
         sx={{
           "&::before, &::after": {
@@ -22,8 +22,8 @@ const Question = (props) => {
       </Divider>
       <br />
 
-      <Typography variant="h5">
-        {props.question.question}{" "}
+      <Typography variant="h5" sx={{height: "102px"}}>
+        {props.question.question}<br />
         <Box
           component="div"
           sx={{ display: "inline", color: "#1976d2", fontWeight: "600" }}
@@ -32,8 +32,7 @@ const Question = (props) => {
         </Box>
         ?
       </Typography>
-      <br />
-      <br />
+      
 
       <Divider sx={{ borderColor: "white" }}></Divider>
     </div>

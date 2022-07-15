@@ -11,8 +11,6 @@
   
 }
 
-
-
 .none {
   display: none;
 }
@@ -26,16 +24,11 @@
   padding: 1rem;
   border-radius: 0.3rem;
   
-  
 }
 
 .gameover {
   background-color: white;
 }
-
-
-
-
 
 .flex {
   display: flex;

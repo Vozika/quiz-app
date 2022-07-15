@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div className="container--title">
       <Typography variant="h5">
-        <strong>CAPITAL QUIZ 1.0</strong>
+        <strong>CAPITAL QUIZ 1.1</strong>
       </Typography>
     </div>
   );
