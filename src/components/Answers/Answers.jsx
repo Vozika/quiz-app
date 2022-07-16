@@ -13,16 +13,17 @@ const Answers = (props) => {
       alignItems="center"
       spacing={1}
     >
-      {props.question.options.map((answer) => {
+      {props.question.options.map((option) => {
         return (
           <Button
             variant="contained"
             fullWidth="true"
-            onClick={() => props.optionClicked(answer.isCorrect)}
-            key={answer.id}
+            onClick={() => props.optionClicked(option.isCorrect)}
+            key={option.id}
             disabled={false}
+            
           >
-            {answer.capital}
+            {option.capital}
           </Button>
         );
       })}
