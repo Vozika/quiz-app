@@ -57,7 +57,6 @@ function App() {
 
     const country = Data[randomCountry].country;
     correctCountry.isCorrect = true;
-    // correctCountry.id = 666;
     Data.splice(randomCountry, 1);
 
     const options = [];
@@ -69,7 +68,6 @@ function App() {
       let countriesLoop = Data;
       let randomCountryLoop = getRandom(countriesLoop.length);
       countriesLoop[randomCountryLoop].isCorrect = false;
-      // countriesLoop[randomCountryLoop].id = i;
       options.push(countriesLoop[randomCountryLoop]);
       splicedCountries.push(countriesLoop[randomCountryLoop]);
       countriesLoop.splice(randomCountryLoop, 1);
@@ -212,6 +210,9 @@ function App() {
         )}
         <Footer />
       </div>
+
+
+
     </div>
   );
 }
